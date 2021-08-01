@@ -1,0 +1,21 @@
+version: '3.1'
+services:
+
+  action_first:
+    image: ubuntu:latest
+    container_name: action_first
+    hostname: action_first
+    command: bash -c "cd HomeWork && touch change_me.txt"
+    ports:
+     - 5000:5000
+    volumes:
+     - ./HomeWork:/HomeWork
+  action_second:
+    image: ubuntu:latest
+    container_name: action_second
+    hostname: action_second
+    command: bash -c "cd HomeWork && chmod +x change_me.txt"
+    ports:
+     - 5001:5001
+    volumes:
+     - ./HomeWork:/HomeWork
